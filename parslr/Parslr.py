@@ -83,7 +83,7 @@ class Parslr:
             line = process.stderr.readline()
             if line:
                 if re.match(".*error.*", line):
-                    errors = [line]
+                    errors += [line]
             else:
                 break
 
