@@ -51,4 +51,6 @@ def prepare_parser():
                         help="Temporary folder",
                         type=dir_doesnt_exist,
                         default="tmp")
+    parser.add_argument("-o", "--output",
+                        help="Output JUnit test result file")
     return parser
