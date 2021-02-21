@@ -81,8 +81,8 @@ class Parslr:
         errors = []
         while True:
             line = process.stderr.readline()
-            print(line)
-            if line:
+            if line and line.strip() != "":
+                print(line)
                 if re.match(".*line.*", line):
                     errors += [line]
             elif process.poll() is not None:
