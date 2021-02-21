@@ -10,6 +10,13 @@ def file_path(string):
         raise FileNotFoundError(string)
 
 
+def file_dir_path(string):
+    if os.path.isfile(string) or os.path.isdir(string):
+        return string
+    else:
+        raise FileNotFoundError(string)
+
+
 def dir_doesnt_exist(string):
     if os.path.isdir(string):
         raise FileExistsError(string)
@@ -34,9 +41,9 @@ def prepare_parser():
                         help="Rule to start parsing with",
                         required=True)
     parser.add_argument("-i", "--input",
-                        help="File to parse",
+                        help="File or directory with files to parse",
                         required=True,
-                        type=file_path)
+                        type=file_dir_path)
     parser.add_argument("-v", "--verbose",
                         help="Verbose mode",
                         action='store_true')
@@ -44,4 +51,6 @@ def prepare_parser():
                         help="Temporary folder",
                         type=dir_doesnt_exist,
                         default="tmp")
+    parser.add_argument("-o", "--output",
+                        help="Output JUnit test result file")
     return parser

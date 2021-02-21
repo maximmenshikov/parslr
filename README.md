@@ -9,7 +9,9 @@ Mandatory parameters are:
  * ```-g <path>``` --- path to grammar.
  * ```-a <path>``` --- path to complete ANTLR jar.
  * ```-r <name>``` --- starting rule.
- * ```-i <path>``` --- path to test input.
+ * ```-i <path>``` --- path to test input or folder with inputs. In the latter
+ 	case, JUnit result XML may be generated.
+ * ```-o <path>``` --- path to output JUnit result XML.
 
 The return code is a number of errors during parsing.
 

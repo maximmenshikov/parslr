@@ -13,6 +13,12 @@ ret_val = p.compile()
 if ret_val != 0:
     print("Failed to compile parser")
     sys.exit(ret_val)
-sys.exit(len(p.run_test_rig(os.path.splitext(os.path.basename(args.grammar))[0],
-                            args.rule,
-                            args.input)))
+
+grammar = os.path.splitext(os.path.basename(args.grammar))[0]
+if os.path.isdir(args.input):
+    # A directory with cases
+    sys.exit(p.run_test_rig_on_dir(
+        grammar, args.rule, args.input, args.output))
+else:
+    # Just one file
+    sys.exit(len(p.run_test_rig(grammar, args.rule, args.input)))
