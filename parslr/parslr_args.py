@@ -2,6 +2,7 @@ import argparse
 import os
 import re
 
+
 def file_path(string):
     if os.path.isfile(string):
         return string

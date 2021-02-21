@@ -7,6 +7,8 @@ import sys
 """
 Main parslr class
 """
+
+
 class Parslr:
 
     CLS_ANTLR_TOOL = "org.antlr.v4.Tool"
@@ -29,6 +31,7 @@ class Parslr:
     """
     Get Java arguments for different PARSLR modes
     """
+
     def java_args(self, compiler, cls):
         args = []
         if compiler:
@@ -43,6 +46,7 @@ class Parslr:
     """
     Generate parser in Java language
     """
+
     def generate_parser(self, grammar):
         if not self.validate():
             return -1
@@ -66,7 +70,7 @@ class Parslr:
 
     def run_test_rig(self, cls, rule, input):
         if not self.validate():
-            return [ Parslr.ERR_PARSER_NOT_READY ]
+            return [Parslr.ERR_PARSER_NOT_READY]
 
         all_args = ["java",
                     "-cp",
